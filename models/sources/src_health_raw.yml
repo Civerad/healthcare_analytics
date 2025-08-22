@@ -1,0 +1,9 @@
+version: 2   # always 2
+
+sources:
+  - name: health_data              # this is your dbt "source" label
+    database: health-analytics-469612   # BigQuery project
+    schema: healthcare_analytics        # BigQuery dataset
+    tables:
+      - name: raw_healthcare_analytics  # the logical name dbt will use
+        description: "Raw healthcare data table"

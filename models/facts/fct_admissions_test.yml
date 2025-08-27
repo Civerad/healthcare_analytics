@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: fct_admissions
+    columns:
+      - name: patient_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_patient')
+                field: patient_id
+
+      - name: doctor_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_doctors')
+                field: doctor_id
+
+      - name: hospital_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_hospitals')
+                field: hospital_id
+
+
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "discharge_date >= date_of_admission"

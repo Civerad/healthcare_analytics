@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: dim_medication
+    columns:
+      - name: medication_id
+        tests:
+          - unique
+          - not_null
+      - name: medication
+        tests:
+          - not_null

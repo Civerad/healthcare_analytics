@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: dim_doctors
+    columns:
+      - name: doctor_id
+        tests:
+          - unique
+          - not_null
+      - name: doctor_full_name
+        tests:
+          - not_null

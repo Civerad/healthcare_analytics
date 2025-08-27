@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_health_analytics
+    columns:
+      - name: name
+        tests:
+          - not_null
+      - name: age
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: gender
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Male', 'Female']
+      - name: blood_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+      - name: billing_amount
+        tests:
+          - not_null
+      - name: date_of_admission
+        tests:
+          - not_null
+      - name: discharge_date
+        tests:
+          - not_null

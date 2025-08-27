@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: dim_hospitals
+    columns:
+      - name: hospital_id
+        tests:
+          - unique
+          - not_null
+      - name: hospital_name
+        tests:
+          - not_null

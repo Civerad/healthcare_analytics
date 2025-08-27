@@ -9,7 +9,6 @@ select DISTINCT
     name AS patient_full_name,
     SPLIT(INITCAP(name), ' ')[SAFE_OFFSET(0)] AS patient_first_name,
     SPLIT(INITCAP(name), ' ')[SAFE_OFFSET(1)] AS patient_last_name,
-    age,
     gender,
     blood_type
 

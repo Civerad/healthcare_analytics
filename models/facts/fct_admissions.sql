@@ -18,11 +18,15 @@ SELECT
 FROM {{ ref('stg_health_analytics') }} s
 LEFT JOIN {{ ref('dim_patient') }} p
   ON s.name = p.patient_full_name
+  AND s.gender = p.gender
+  AND s.blood_type = p.blood_type
 LEFT JOIN {{ ref('dim_doctors') }} d
   ON s.doctor = d.doctor_full_name
+  AND s.hospital = d.hospital
 LEFT JOIN {{ ref('dim_hospitals') }} h
   ON s.hospital = h.hospital_name
 LEFT JOIN {{ ref('dim_insurance') }} i
   ON s.insurance_provider = i.insurance_provider
 LEFT JOIN {{ ref('dim_medication') }} m
   ON s.medication = m.medication
+ORDER BY doctor_full_name

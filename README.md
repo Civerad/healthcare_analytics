@@ -49,7 +49,7 @@ The project uses healthcare admissions data enriched with dimension tables to pr
 - `dim_medication` – Medication names and categories.
 
 **Data Cleaning & Transformations**
-- Cleaned missing and wrong values
+- Cleaned missing and abnormal values.
 - Created **unique patient IDs** using a hash of name, gender, and blood type.
 - Standardized categorical fields (gender, admission type, medication names).
 - Derived **length of stay** from admission and discharge dates.
